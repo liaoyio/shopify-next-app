@@ -1,0 +1,12 @@
+@import 'tailwindcss';
+
+/* see: https://tailwindcss.com/docs/preflight#border-styles-are-reset */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}

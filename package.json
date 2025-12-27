@@ -1,0 +1,46 @@
+{
+  "name": "shopify-next-app",
+  "version": "0.0.1",
+  "main": "web/dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "shopify app dev",
+    "dev-local": "shopify app dev --use-localhost",
+    "info": "shopify app info",
+    "build": "shopify app build",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy",
+    "lint-hooks": "npx simple-git-hooks",
+    "-----> Lint (delegated to web/) <-----": "",
+    "lint": "pnpm -C web lint",
+    "lint:fix": "pnpm -C web lint:fix",
+    "lint:inspect": "pnpm -C web lint:inspect",
+    "-----> Database <-----": "",
+    "pg:create": "mkdir database; pg_ctl -D database init",
+    "pg:start": "pg_ctl -D database start",
+    "pg:stop": "pg_ctl -D database stop",
+    "-----> Web (Prisma) <-----": "",
+    "migrate": "pnpm --filter web-app run migrate",
+    "graphql-codegen": "pnpm --filter web-app run graphql-codegen"
+  },
+  "author": "liaoyi",
+  "keywords": [
+    "shopify app",
+    "nextjs",
+    "polaris",
+    "prisma",
+    "template"
+  ],
+  "dependencies": {
+    "typescript": "^5.9.3",
+    "lint-staged": "^16.2.6",
+    "simple-git-hooks": "^2.13.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "pnpm -C web lint:fix"
+  },
+  "private": true
+}

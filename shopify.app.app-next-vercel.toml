@@ -1,0 +1,32 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "f5c2f2270a1d4d5e9d31f5b504383a13"
+name = "Next.js App"
+application_url = "https://next-shopify-app.vercel.app/"
+embedded = true
+
+[build]
+automatically_update_urls_on_dev = false
+# 在这里设置你的开发店铺 URL
+dev_store_url = "ooyi.myshopify.com"
+include_config_on_deploy = true
+
+[access.admin]
+direct_api_mode = "offline"
+embedded_app_direct_api_access = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products, read_products, read_orders, read_customers, read_inventory, read_themes, read_content"
+
+[auth]
+redirect_urls = [
+  "https://next-shopify-app.vercel.app/api/auth",
+  "https://next-shopify-app.vercel.app/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2026-01"
+
+[pos]
+embedded = false
