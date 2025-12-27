@@ -9,6 +9,7 @@ export default async function Page(
   const searchParams = await props.searchParams
   // we can perform some checks to see if the app has been installed and that it is still valid
   const { shop, host } = searchParams
+  console.log('shop -->', searchParams)
   if (!shop || !host) {
     return <h1>Missing Shop and Host Parameters</h1>
   }

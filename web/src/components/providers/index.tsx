@@ -14,6 +14,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     <AppProvider i18n={translations}>
       <AppBridgeProvider>
         <NavMenu>
+          <Link href="/debug">Debug Page</Link>
           <Link href="/new">New Page</Link>
         </NavMenu>
         <TanstackProvider>
